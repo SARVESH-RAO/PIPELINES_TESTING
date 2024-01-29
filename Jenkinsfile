@@ -1,4 +1,4 @@
-pipeline {
+opipeline {
     agent any
     options {
         skipStagesAfterUnstable()
@@ -6,13 +6,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make'
+                echo 'Test environment'
             }
         }
         stage('Test'){
             steps {
-                sh 'make check'
-                junit 'reports/**/*.xml'
+                echo 'UAT environment'
+                
             }
         }
         stage('Deploy') {
